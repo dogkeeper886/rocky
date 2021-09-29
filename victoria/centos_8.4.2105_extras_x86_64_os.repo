@@ -1,0 +1,5 @@
+[centos_8.4.2105_extras_x86_64_os]
+name=created by dnf config-manager from http://mirror.centos.org/centos/8.4.2105/extras/x86_64/os/
+baseurl=http://mirror.centos.org/centos/8.4.2105/extras/x86_64/os/
+enabled=1
+gpgcheck=0
