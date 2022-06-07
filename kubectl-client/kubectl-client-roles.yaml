@@ -1,11 +1,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  creationTimestamp: "2022-06-07T12:16:25Z"
   name: kubectl-client
   namespace: default
-  resourceVersion: "215863"
-  uid: 6553be1f-924b-42ff-a5b9-25d6c8fbd265
 rules:
 - apiGroups:
   - ""
