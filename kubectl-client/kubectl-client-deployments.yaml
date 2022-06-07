@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "3"
+  creationTimestamp: "2022-06-07T12:53:42Z"
+  generation: 3
+  labels:
+    app: kubectl-client
+  name: kubectl-client
+  namespace: default
+  resourceVersion: "216314"
+  uid: 63b6cd33-ee95-4b64-8e63-ad11a6aefc8d
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: kubectl-client
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: kubectl-client
+    spec:
+      containers:
+      - command:
+        - /bin/sh
+        - -ec
+        - sleep 1000
+        image: dogkeeper886/kubectl-client
+        imagePullPolicy: Always
+        name: kubectl-client
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: kubectl-client
+      serviceAccountName: kubectl-client
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2022-06-07T12:53:42Z"
+    lastUpdateTime: "2022-06-07T12:55:44Z"
+    message: ReplicaSet "kubectl-client-7ff75797d7" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2022-06-07T13:12:29Z"
+    lastUpdateTime: "2022-06-07T13:12:29Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 3
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
