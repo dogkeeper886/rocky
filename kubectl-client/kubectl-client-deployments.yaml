@@ -16,10 +16,12 @@ spec:
         app: kubectl-client
     spec:
       containers:
-      - command:
-        - /bin/sh
-        - -ec
-        - sleep 1000
+      - args:
+        - while true; do sleep 3600; done;
+        command:
+        - /bin/bash
+        - -c
+        - --
         image: dogkeeper886/kubectl-client
         imagePullPolicy: IfNotPresent
         name: kubectl-client
